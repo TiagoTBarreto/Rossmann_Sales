@@ -98,7 +98,7 @@ Em projetos de Ciência de Dados em empresas, é comum o uso da linguagem SQL e 
 ## 4.0 Filtragem dos Dados:
 Nesta etapa, realizamos uma análise descritiva dos dados, aplicamos engenharia de características e filtramos linhas e colunas de acordo com as restrições de negócios. Também elaboramos um mapa mental que resume essa abordagem.
 
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/1bf2664b-68ff-4a3f-90b1-c076d1246e97)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/d20b18b8-842b-4bfb-842e-d2c226da4080)
 
 Com base nesse mapa mental, formulei inicialmente 19 hipóteses. No entanto, devido às limitações das características disponíveis, optei por validar apenas 11 dessas hipóteses.
 
