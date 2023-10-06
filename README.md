@@ -1,7 +1,7 @@
 # Previsão de Vendas Rossmann
 
 <p align="center">
-  <img src="https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/dd780558-6e6f-4a4d-89fd-dccf2510ac5c](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/8e2ab520-e347-4725-91aa-cc6a866eddc4" width="100%" height="300">
+  <img src="https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/cef091c0-90cc-413c-83ed-ef9bb31c94c5" width="100%" height="300">
 </p>
 
 
