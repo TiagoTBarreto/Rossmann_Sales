@@ -84,7 +84,8 @@ Foi empregado o método de gerenciamento CRIPS-DS, que tem como objetivo o desen
 - Mapeamento de todos os possíveis problemas.
 
 O CRIPS-DS é composto pelos seguintes passos: 
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/eb74d030-2d54-47ee-bc85-6d0fc1f9378b)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/f4cac96f-a228-4e28-b5a2-eb16f29d5a39)
+
 ## 1.0 Questão de Negócio:
 Os gerentes das lojas solicitaram a previsão de vendas para as próximas seis semanas.
 
@@ -97,7 +98,7 @@ Em projetos de Ciência de Dados em empresas, é comum o uso da linguagem SQL e 
 ## 4.0 Filtragem dos Dados:
 Nesta etapa, realizamos uma análise descritiva dos dados, aplicamos engenharia de características e filtramos linhas e colunas de acordo com as restrições de negócios. Também elaboramos um mapa mental que resume essa abordagem.
 
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/7fe092b7-3823-4970-a1cd-b8c491f38d26)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/1bf2664b-68ff-4a3f-90b1-c076d1246e97)
 
 Com base nesse mapa mental, formulei inicialmente 19 hipóteses. No entanto, devido às limitações das características disponíveis, optei por validar apenas 11 dessas hipóteses.
 
@@ -128,14 +129,14 @@ Foram selecionados 5 algoritmos:
 
 Modelo Médio (Average Model) foi usado como linha de base para permitir a comparação de desempenho com outros algoritmos. Inicialmente, foram testados algoritmos lineares e mais simples para entender a complexidade do problema. Como esses algoritmos não apresentaram um bom desempenho, posteriormente foram testados o Random Forest e o XGBoost, que são algoritmos mais complexos. Após essa análise preliminar da complexidade do problema, obtivemos os seguintes resultados:
 
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/da48a209-8216-4592-9aa6-ec91ae7e18a5)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/f5b31ce7-8fa0-4ebd-94b6-e625990864d2)
 
 ### 7.3 Performance dos Algoritmos com Cross-Validation:
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/6b880fdb-dcb1-4c5c-8212-92ba1c939b9a)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/1998fc18-93da-49f6-8625-90fcf3b350dc)
 
 Em seguida, foi aplicado o método de Validação Cruzada TimeSeriesSplit com 5 divisões (splits) para garantir a avaliação real do desempenho do modelo. Após os testes, obtivemos os seguintes resultados:
 
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/af189007-fd8d-45a8-a18a-4cda46774d02)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/b405e357-dd67-4a14-a474-bd7a5b22a196)
 
 ### 7.4 Escolha do Algoritmo:
 **Embora a Random Forest tenha apresentado um desempenho superior, optei pelo XGBoost para a próxima fase devido aos seguintes motivos:** 
@@ -158,15 +159,15 @@ O Bayesian Search identificou os seguintes como os melhores parâmetros dentro d
   
 Apesar de esses terem sido os melhores parâmetros, por questões de armazenamento, reduziu-se o valor de 'max_depth' para 9 e 'n_estimators' para 375.
 ### 7.6 Performance Final
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/8718f6fe-307e-4d4e-abcf-2a329a910e68)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/c89fdb88-06db-4810-a497-485499a1c2ce)
 
 ## 8.0 Avaliação do Algoritmo:
 Este estágio do projeto é um ponto crucial, pois transita da parte técnica, envolvendo modelos e algoritmos, para a tradução e interpretação do erro do modelo em termos de negócio. Ele fornece uma estimativa de quanto esse modelo contribuirá para o aumento da receita da empresa. Nesta etapa, é possível realizar uma comparação com o estado atual do negócio (status quo), mas, como não dispomos de informações sobre o desempenho dos métodos de previsão utilizados por cada gerente, basearemos o desempenho do modelo no aumento da receita por meio dos cenários de vendas projetados.
 ### 8.1 Performance do Modelo na Visão de Negócio
 **Foi utilizada a métrica MAE para avaliação do modelo em questão do desempenho de negócio**
 
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/0e720ef6-6321-48b9-83e0-dfc6ec743e14)
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/d3639a85-49df-435d-adeb-72d9b5ca7efc)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/7645d1e2-b531-4158-932e-fc6bfd2760e8)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/369ee438-08e6-4cfa-8158-b84ac9fdace6)
 
 - O modelo teve um erro médio de 10%, apresentando um desempenho sólido na maioria das lojas, mas um desempenho ruim em duas delas.
 - No primeiro gráfico, é possível observar a distribuição das lojas em relação ao erro médio. Nota-se uma grande concentração de pontos em uma região de baixo erro, com alguns pontos dispersos nas regiões de maior erro.
@@ -175,17 +176,17 @@ Este estágio do projeto é um ponto crucial, pois transita da parte técnica, e
 ### 8.2 Performance Total do Modelo
 O modelo previu vendas de 282 milhões para as próximas 6 semanas. Devido ao seu erro médio de 10%, ele pode, na pior das hipóteses, subestimar o valor em 10% ou superestimar em 10%, como pode ser observado no dataframe a seguir, que apresenta o número de vendas previsto, o melhor cenário e o pior cenário.
 
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/a79f049a-920f-46f4-9f45-7ee41d6c3b00)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/75cb0041-fb29-4244-911e-255b4b2799ce)
 
 ### 8.3 Performance do Modelo na Visão de Aprendizado de Máquina
 **Análise de Desempenho das Previsões do Modelo**
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/1feff92c-ce78-407f-8271-ab541e89df4d)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/248bf8b0-8626-4bf4-91e3-240d19172013)
 
 - No primeiro gráfico, é possível observar que ao longo do tempo, embora as linhas de vendas reais e vendas previstas sejam um pouco distintas, elas apresentam um comportamento muito semelhante.
 - No segundo gráfico, o eixo y representa a 'error_rate' (taxa de erro). O cenário ideal é representado pela linha tracejada que corresponde a uma taxa de 1, indicando que o modelo não cometeu erros em suas previsões. Através desse gráfico, é possível determinar se o modelo, ao longo do tempo, está subestimando ou superestimando o número de vendas. Se a taxa estiver abaixo de 1, o modelo está subestimando; se estiver acima de 1, o modelo está superestimando.
 
 **Análise de Resíduo do Modelo**
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/a8d15235-9c62-45f5-9502-31f92113e102)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/62fd5da8-c392-48ba-8b1c-766041a125a2)
 
 - No primeiro gráfico, foi empregado um histograma dos resíduos para verificar se estes seguem uma distribuição normal. No entanto, é perceptível uma kurtosis elevada, indicando que os erros estão concentrados em uma faixa estreita de valores.
 - No segundo gráfico, utilizou-se um scatterplot para analisar o relacionamento entre os "Resíduos" e os "Valores Previstos". Através dessa análise, é possível verificar se o modelo tende a cometer erros maiores à medida que os valores das previsões aumentam. No entanto, neste caso, embora haja alguns outliers na faixa de previsões entre 5000 e 10000, observa-se que o erro tende a ser semelhante, independentemente do valor da previsão.
@@ -197,17 +198,15 @@ Nessa fase, uma aplicação na nuvem foi criada no Render, onde o modelo de Mach
 
 # 6. Top 2 Insights
 ## 1.0 Lojas com mais promoções consecutivas vendem em média menos.
-
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/39a550f5-584a-4f81-9069-0503dc394397)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/6cd3c587-2132-466c-b232-48e6c2c0c533)
 
 ## 2.0 Lojas com competidores mais próximos vendem em média mais.
-
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/86df848b-1795-4798-9460-64660f2c8685)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/af62eb8f-6d2e-43d9-ac95-004e6a97154e)
 
 # 7. O produto final do projeto
 WebApp online, hospedado no Streamlit Cloud e integrado com o modelo que está no Render, está disponível para acesso em qualquer dispositivo conectado à internet, possibilitando que qualquer consumidor tenha acesso ao modelo. Você pode acessar o WebApp através do seguinte link: https://rossmann-sales-forecast.streamlit.app/
 
-![image](https://github.com/TiagoTBarreto/ds_em_producao/assets/137197787/b2c18b75-4730-4949-9f2b-6ccc682159b1)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/c8540192-01d1-41df-9b1a-1bef31cba492)
 **A imagem acima é do WebApp, como pode se observar na barra lateral tem 3 filtros:**
 - ID Store: Este filtro controla o número das lojas para as quais a previsão será realizada.
 - Sales: Este filtro estabelece um limite de vendas para as lojas que serão exibidas posteriormente no dataframe.
