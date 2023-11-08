@@ -66,100 +66,36 @@ Foi empregado o método de gerenciamento CRIPS-DM, que tem como objetivo o desen
 - Maior rapidez na entrega de valor.
 - Mapeamento de todos os possíveis problemas.
 
-O CRIPS-DS é composto pelos seguintes passos: 
+O CRIPS-DM é composto pelos seguintes passos: 
 ![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/f4cac96f-a228-4e28-b5a2-eb16f29d5a39)
 
-
-### 7.2 Performance dos Algoritmos sem Cross-Validation:
-**Os algoritmos foram avaliados com base na métrica RMSE**
-
-Modelo Médio (Average Model) foi usado como linha de base para permitir a comparação de desempenho com outros algoritmos. Inicialmente, foram testados algoritmos lineares e mais simples para entender a complexidade do problema. Como esses algoritmos não apresentaram um bom desempenho, posteriormente foram testados o Random Forest e o XGBoost, que são algoritmos mais complexos. Após essa análise preliminar da complexidade do problema, obtivemos os seguintes resultados:
-
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/f5b31ce7-8fa0-4ebd-94b6-e625990864d2)
-
-### 7.3 Performance dos Algoritmos com Cross-Validation:
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/1998fc18-93da-49f6-8625-90fcf3b350dc)
-
-Em seguida, foi aplicado o método de Validação Cruzada TimeSeriesSplit com 5 divisões (splits) para garantir a avaliação real do desempenho do modelo. Após os testes, obtivemos os seguintes resultados:
-
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/b405e357-dd67-4a14-a474-bd7a5b22a196)
-
-### 7.4 Escolha do Algoritmo:
-**Embora a Random Forest tenha apresentado um desempenho superior, optei pelo XGBoost para a próxima fase devido aos seguintes motivos:** 
-- Requer significativamente menos armazenamento.
-- Apresenta um processamento consideravelmente mais rápido
-- Oferece economia em termos de custos computacionais.
-
-### 7.5 HyperParameter Fine Tunning:
-Esta fase tem como objetivo encontrar os melhores parâmetros para o modelo. Foi utilizado o método Bayesian Search, que não procura os melhores parâmetros aleatoriamente, mas aprende a cada iteração, buscando os parâmetros que minimizam o erro ao máximo. Devido à capacidade de armazenamento limitada na nuvem, este foi o espaço de busca definido:
-- 'max_depth': (5, 15)   
-- 'learning_rate': (0.03, 0.15, 'log-uniform')
-- 'subsample': (0.3, 0.7, 'uniform')
-- 'n_estimators': (300, 1000)
-
-O Bayesian Search identificou os seguintes como os melhores parâmetros dentro do espaço de busca:
-- 'learning_rate': 0.0509 
-- 'max_depth': 10
-- 'n_estimators': 861
-- 'subsample': 0.5051
-  
-Apesar de esses terem sido os melhores parâmetros, por questões de armazenamento, reduziu-se o valor de 'max_depth' para 9 e 'n_estimators' para 375.
-### 7.6 Performance Final
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/c89fdb88-06db-4810-a497-485499a1c2ce)
-
-## 8.0 Avaliação do Algoritmo:
-Este estágio do projeto é um ponto crucial, pois transita da parte técnica, envolvendo modelos e algoritmos, para a tradução e interpretação do erro do modelo em termos de negócio. Ele fornece uma estimativa de quanto esse modelo contribuirá para o aumento da receita da empresa. Nesta etapa, é possível realizar uma comparação com o estado atual do negócio (status quo), mas, como não dispomos de informações sobre o desempenho dos métodos de previsão utilizados por cada gerente, basearemos o desempenho do modelo no aumento da receita por meio dos cenários de vendas projetados.
-### 8.1 Performance do Modelo na Visão de Negócio
-**Foi utilizada a métrica MAE para avaliação do modelo em questão do desempenho de negócio**
-
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/7645d1e2-b531-4158-932e-fc6bfd2760e8)
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/369ee438-08e6-4cfa-8158-b84ac9fdace6)
-
-- O modelo teve um erro médio de 10%, apresentando um desempenho sólido na maioria das lojas, mas um desempenho ruim em duas delas.
-- No primeiro gráfico, é possível observar a distribuição das lojas em relação ao erro médio. Nota-se uma grande concentração de pontos em uma região de baixo erro, com alguns pontos dispersos nas regiões de maior erro.
-- No segundo gráfico, é possível observar o número de lojas distribuídas em faixas de erro. Podemos notar que mais de 1000 das 1115 lojas têm um erro abaixo de 15%, enquanto apenas 4 lojas têm um erro acima de 30%.
-
-### 8.2 Performance Total do Modelo
-O modelo previu vendas de 282 milhões para as próximas 6 semanas. Devido ao seu erro médio de 10%, ele pode, na pior das hipóteses, subestimar o valor em 10% ou superestimar em 10%, como pode ser observado no dataframe a seguir, que apresenta o número de vendas previsto, o melhor cenário e o pior cenário.
-
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/75cb0041-fb29-4244-911e-255b4b2799ce)
-
-### 8.3 Performance do Modelo na Visão de Aprendizado de Máquina
-**Análise de Desempenho das Previsões do Modelo**
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/248bf8b0-8626-4bf4-91e3-240d19172013)
-
-- No primeiro gráfico, é possível observar que ao longo do tempo, embora as linhas de vendas reais e vendas previstas sejam um pouco distintas, elas apresentam um comportamento muito semelhante.
-- No segundo gráfico, o eixo y representa a 'error_rate' (taxa de erro). O cenário ideal é representado pela linha tracejada que corresponde a uma taxa de 1, indicando que o modelo não cometeu erros em suas previsões. Através desse gráfico, é possível determinar se o modelo, ao longo do tempo, está subestimando ou superestimando o número de vendas. Se a taxa estiver abaixo de 1, o modelo está subestimando; se estiver acima de 1, o modelo está superestimando.
-
-
-
-# 4. Top 2 Insights
+# 6. Top 2 Insights
 ## 1.0 Lojas com mais promoções consecutivas vendem em média menos.
 ![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/6cd3c587-2132-466c-b232-48e6c2c0c533)
 
 ## 2.0 Lojas com competidores mais próximos vendem em média mais.
 ![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/af62eb8f-6d2e-43d9-ac95-004e6a97154e)
 
-# 5. Machine Learning
+# 7. Machine Learning
 - Average Model
 - Linear Regression
 - Linear Regression Regularized
 - Random Forest Regressor
 - XGBoost Regressor
 
-(https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/b405e357-dd67-4a14-a474-bd7a5b22a196)
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/b5b0fe72-2045-407c-a875-ddad43dc766d)
 
 **Após uma análise das métricas com Cross-Validation de 5 splits a Random Forest apresentou o melhor desempenho, mas optei pelo XGBoost para a próxima fase pelos seguintes motivos:** 
 - Requer significativamente menos armazenamento.
 - Apresenta um processamento consideravelmente mais rápido
 - Oferece economia em termos de custos computacionais.
 
-# 6. Tradução do modelo de Machine Learning
+# 8. Tradução do modelo de Machine Learning
 O modelo previu vendas de R$ 282 milhões para as próximas 6 semanas. Devido ao seu erro médio de 10%, ele pode, na pior das hipóteses, subestimar o valor em 10% ou superestimar em 10%, como pode ser observado no dataframe a seguir, que apresenta o número de vendas previsto, o melhor cenário e o pior cenário.
 
 ![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/75cb0041-fb29-4244-911e-255b4b2799ce)
 
-# 7. O produto final do projeto
+# 9. O produto final do projeto
 WebApp online, hospedado no Streamlit Cloud e integrado com o modelo que está no Render, está disponível para acesso em qualquer dispositivo conectado à internet, possibilitando que qualquer consumidor tenha acesso ao modelo. Você pode acessar o WebApp através do seguinte link: https://rossmann-sales-forecast.streamlit.app/
 
 ![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/c8540192-01d1-41df-9b1a-1bef31cba492)
@@ -170,13 +106,13 @@ WebApp online, hospedado no Streamlit Cloud e integrado com o modelo que está n
 
 **Após a previsão, um dataframe é gerado e pode ser baixado ao clicar no botão "DOWNLOAD CSV", permitindo assim a manipulação desse dataframe de acordo com as necessidades do CFO.**
   
-# 8. Conclusão
+# 10. Conclusão
 - O projeto fornece uma solução automatizada para a previsão de vendas das lojas da Rossmann, eliminando a necessidade de previsões manuais feitas por gerentes de loja.
 - O modelo de previsão de vendas desenvolvido demonstrou um desempenho consistente na maioria das lojas, com um erro médio de aproximadamente 10%. No entanto, é importante observar que o desempenho pode variar entre as lojas. Portanto, em primeiro lugar, podemos utilizar como referência para o orçamento de reformas as mais de 600 lojas com erro inferior a 10%. Dependendo do desempenho atual do método utilizado para a previsão de vendas, podemos considerar a inclusão das previsões das lojas com erro até 15% ou 20%. No entanto, aquelas que apresentarem um erro superior a esse valor deveriam ser discutidas com o CFO, e não devemos considerar as previsões das lojas 292 e 909, que possuem erros superiores a 50%.
 - Uma das principais descobertas foi que as lojas que realizam promoções consecutivas tendem a vender em média menos. Isso pode ser útil para o CFO ao tomar decisões sobre a alocação de recursos para promoções.
 - Outra descoberta importante foi que as lojas com competidores mais próximos tendem a vender em média mais. Isso pode ser uma informação valiosa ao considerar a localização das lojas e a concorrência.
 
-# 9. Próximo passos
+# 11. Próximo passos
 Se fosse continuar o trabalho nesse projeto, realizando um segundo ciclo do CRISP-DS, consideraria os seguintes passos para tentar criar um novo modelo para as lojas com baixo desempenho ou melhorar o desempenho geral do modelo atual, sem outliers com grandes erros:
 - Conduzir uma análise aprofundada para identificar as particularidades das lojas com baixo desempenho que estão dificultando a precisão das previsões do modelo.
 - Coletar mais Dados.
