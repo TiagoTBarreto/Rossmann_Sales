@@ -135,7 +135,7 @@ WebApp online, hospedado no Streamlit Cloud e integrado com o modelo que está n
 - Outra descoberta importante foi que as lojas com competidores mais próximos tendem a vender em média mais. Isso pode ser uma informação valiosa ao considerar a localização das lojas e a concorrência.
 
 # 11. Próximo passos
-Se fosse continuar o trabalho nesse projeto, realizando um segundo ciclo do CRISP-DS, consideraria os seguintes passos para tentar criar um novo modelo para as lojas com baixo desempenho ou melhorar o desempenho geral do modelo atual, sem outliers com grandes erros:
+Se fosse continuar o trabalho nesse projeto, realizando um segundo ciclo do CRISP-DM, consideraria os seguintes passos para tentar criar um novo modelo para as lojas com baixo desempenho ou melhorar o desempenho geral do modelo atual, sem outliers com grandes erros:
 - Conduzir uma análise aprofundada para identificar as particularidades das lojas com baixo desempenho que estão dificultando a precisão das previsões do modelo.
 - Coletar mais Dados.
 - Efetuar a criação de novas variáveis a partir do conjunto de dados já existente.
