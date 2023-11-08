@@ -16,31 +16,15 @@ Atualmente, as previsões são feitas individualmente por cada gerente de loja, 
 O objetivo deste projeto é auxiliar o CFO na tomada de decisões, fornecendo previsões automáticas para cada loja e permitindo que ele consulte essas previsões através de uma aplicação web no Streamlit.
 
 # 2. Ferramentas Utilizadas
-**Linguagem de Programação e Ambiente Virtual:**
+
 - Python 3.11.4: A linguagem de programação principal usada para desenvolver o projeto.
 - Pyenv (Ambiente Virtual): Utilizado para isolar dependências e gerenciar versões do Python.
+- Ferramentas Estatísticas.
 
-**Ferramentas Estatísticas Utilizadas:**
-- Média e Mediana (tendência central).
-- Desvio Padrão e Amplitude (dispersão).
-- Cramer's V: Utilizado para medir a associação entre variáveis categóricas.
-- Correlação de Pearson: Aplicado para quantificar a relação linear entre variáveis contínuas.
-- Skewness e Kurtosis: Usados para avaliar a assimetria e a curtose das distribuições das variáveis.
-  
-**Bibliotecas de Análise de Dados e Computação Numérica:**
-- pandas: Usado para manipulação e análise de dados tabulares.
-- numpy: Essencial para cálculos numéricos eficientes.
-
-**Bibliotecas de Visualização de Dados:**
-- matplotlib: Utilizado para criar gráficos personalizados.
-- seaborn: Usado para melhorar a estética e a clareza das visualizações.
-  
 **Biblioteca de Machine Learning e Otimização:**
 - Scikit-learn: Empregado para a preparação de dados, treinamento de modelos, avaliação de desempenho e validação cruzada.
 - Boruta: Utilizado para seleção de recursos.
 - XGBoost: Implementação de algoritmo de aprendizado de máquina Gradient Boosting.
-
-**Otimização de Hiperparâmetros:**
 - Scikit-Optimize com BayesSearchCV: Utilizado para a busca de hiperparâmetros de forma eficiente.
   
 **Desenvolvimento e Controle de Versão:**
@@ -52,7 +36,6 @@ O objetivo deste projeto é auxiliar o CFO na tomada de decisões, fornecendo pr
 
 **Habilidades e Abordagem:**
 - Pensamento Crítico e Resolução de Problemas: Habilidades fundamentais aplicadas para analisar, solucionar problemas e tomar decisões ao longo do projeto.
-  
   
 # 3. Premissas assumidas para a análise
   - Em lojas onde a distância para o competidor mais próximo não estava disponível, foi assumido o valor de 200.000 metros.
@@ -78,7 +61,7 @@ O objetivo deste projeto é auxiliar o CFO na tomada de decisões, fornecendo pr
 - **PromoInterval** - describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store
   
 # 5. Descrição da solução
-Foi empregado o método de gerenciamento CRIPS-DS, que tem como objetivo o desenvolvimento de projetos de Data Science de forma cíclica. Esse método é abrangente e, ao concluir um ciclo, você obterá:
+Foi empregado o método de gerenciamento CRIPS-DM, que tem como objetivo o desenvolvimento de projetos de Data Science de forma cíclica. Esse método é abrangente e, ao concluir um ciclo, você obterá:
 - Uma versão completa da solução.
 - Maior rapidez na entrega de valor.
 - Mapeamento de todos os possíveis problemas.
@@ -185,23 +168,21 @@ O modelo previu vendas de 282 milhões para as próximas 6 semanas. Devido ao se
 - No primeiro gráfico, é possível observar que ao longo do tempo, embora as linhas de vendas reais e vendas previstas sejam um pouco distintas, elas apresentam um comportamento muito semelhante.
 - No segundo gráfico, o eixo y representa a 'error_rate' (taxa de erro). O cenário ideal é representado pela linha tracejada que corresponde a uma taxa de 1, indicando que o modelo não cometeu erros em suas previsões. Através desse gráfico, é possível determinar se o modelo, ao longo do tempo, está subestimando ou superestimando o número de vendas. Se a taxa estiver abaixo de 1, o modelo está subestimando; se estiver acima de 1, o modelo está superestimando.
 
-**Análise de Resíduo do Modelo**
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/62fd5da8-c392-48ba-8b1c-766041a125a2)
-
-- No primeiro gráfico, foi empregado um histograma dos resíduos para verificar se estes seguem uma distribuição normal. No entanto, é perceptível uma kurtosis elevada, indicando que os erros estão concentrados em uma faixa estreita de valores.
-- No segundo gráfico, utilizou-se um scatterplot para analisar o relacionamento entre os "Resíduos" e os "Valores Previstos". Através dessa análise, é possível verificar se o modelo tende a cometer erros maiores à medida que os valores das previsões aumentam. No entanto, neste caso, embora haja alguns outliers na faixa de previsões entre 5000 e 10000, observa-se que o erro tende a ser semelhante, independentemente do valor da previsão.
 
 
-## 9.0 Modelo em Produção:
-Nessa fase, uma aplicação na nuvem foi criada no Render, onde o modelo de Machine Learning desenvolvido está hospedado, e a "API" está sendo utilizada para permitir que o WebApp Streamlit desenvolvido interaja com o modelo hospedado na nuvem, integrando as duas aplicações. Essa etapa é de extrema importância, pois torna as previsões do modelo acessíveis para qualquer consumidor, em qualquer lugar e a qualquer momento.
-
-
-# 6. Top 2 Insights
+# 4. Top 2 Insights
 ## 1.0 Lojas com mais promoções consecutivas vendem em média menos.
 ![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/6cd3c587-2132-466c-b232-48e6c2c0c533)
 
 ## 2.0 Lojas com competidores mais próximos vendem em média mais.
 ![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/af62eb8f-6d2e-43d9-ac95-004e6a97154e)
+
+# 5. Machine Learning
+- Average Model
+- Linear Regression
+- Linear Regression Regularized
+- Random Forest Regressor
+- XGBoost Regressor
 
 # 7. O produto final do projeto
 WebApp online, hospedado no Streamlit Cloud e integrado com o modelo que está no Render, está disponível para acesso em qualquer dispositivo conectado à internet, possibilitando que qualquer consumidor tenha acesso ao modelo. Você pode acessar o WebApp através do seguinte link: https://rossmann-sales-forecast.streamlit.app/
