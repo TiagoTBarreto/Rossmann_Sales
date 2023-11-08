@@ -45,21 +45,24 @@ O objetivo deste projeto é auxiliar o CFO na tomada de decisões, fornecendo pr
   - A variável "clientes" foi removida da análise, pois não estaria disponível durante a previsão.
 
 # 4. Descrição dos Dados 
-- **Id** - an Id that represents a (Store, Date) duple within the test set
-- **Store** - a unique Id for each store
-- **Sales** - the turnover for any given day (this is what you are predicting)
-- **Customers** - the number of customers on a given day
-- **Open** - an indicator for whether the store was open: 0 = closed, 1 = open
-- **StateHoliday** - indicates a state holiday. Normally all stores, with few exceptions, are closed on state holidays. Note that all schools are closed on public holidays and weekends. a = public holiday, b = Easter holiday, c = Christmas, 0 = None
-- **SchoolHoliday** - indicates if the (Store, Date) was affected by the closure of public schools
-- **StoreType** - differentiates between 4 different store models: a, b, c, d
-- **Assortment** - describes an assortment level: a = basic, b = extra, c = extended
-- **CompetitionDistance** - distance in meters to the nearest competitor store
-- **CompetitionOpenSince[Month/Year]** - gives the approximate year and month of the time the nearest competitor was opened
-- **Promo** - indicates whether a store is running a promo on that day
-- **Promo2** - Promo2 is a continuing and consecutive promotion for some stores: 0 = store is not participating, 1 = store is participating
-- **Promo2Since[Year/Week]** - describes the year and calendar week when the store started participating in Promo2
-- **PromoInterval** - describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store
+| Campo                       | Descrição                                                                                      |
+|-----------------------------|-------------------------------------------------------------------------------------------------|
+| Id                          | Um ID que representa um par (Loja, Data) no conjunto de teste.                                  |
+| Store                       | Um ID exclusivo para cada loja.                                                                |
+| Sales                       | O faturamento para um determinado dia (o que você está prevendo).                                |
+| Customers                   | O número de clientes em um determinado dia.                                                  |
+| Open                        | Um indicador de se a loja estava aberta: 0 = fechada, 1 = aberta.                                  |
+| StateHoliday                | Indica um feriado estadual. Normalmente, todas as lojas, com poucas exceções, estão fechadas em feriados estaduais. Observe que todas as escolas estão fechadas em feriados públicos e fins de semana. a = feriado público, b = feriado de Páscoa, c = Natal, 0 = Nenhum. |
+| SchoolHoliday               | Indica se o (Loja, Data) foi afetado pelo fechamento das escolas públicas.                       |
+| StoreType                   | Diferencia entre 4 modelos diferentes de loja: a, b, c, d.                                       |
+| Assortment                  | Descreve um nível de sortimento: a = básico, b = extra, c = estendido.                              |
+| CompetitionDistance         | Distância em metros para a loja concorrente mais próxima.                                       |
+| CompetitionOpenSince[Month/Year] | Dá o ano e mês aproximados em que o concorrente mais próximo foi aberto.                        |
+| Promo                       | Indica se uma loja está executando uma promoção naquele dia.                                     |
+| Promo2                      | Promo2 é uma promoção contínua e consecutiva para algumas lojas: 0 = loja não está participando, 1 = loja está participando.                                       |
+| Promo2Since[Year/Week]      | Descreve o ano e a semana do calendário em que a loja começou a participar da Promo2.             |
+| PromoInterval               | Descreve os intervalos consecutivos em que a Promo2 é iniciada, nomeando os meses em que a promoção é reiniciada. Por exemplo, "Fev, Mai, Ago, Nov" significa que cada rodada começa em fevereiro, maio, agosto, novembro de qualquer ano para essa loja.             |
+
   
 # 5. Descrição da solução
 Foi empregado o método de gerenciamento CRIPS-DM, que tem como objetivo o desenvolvimento de projetos de Data Science de forma cíclica. Esse método é abrangente e, ao concluir um ciclo, você obterá:
