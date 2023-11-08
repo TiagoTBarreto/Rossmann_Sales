@@ -87,7 +87,14 @@ O CRIPS-DM é composto pelos seguintes passos:
 - Random Forest Regressor
 - XGBoost Regressor
 
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/b5b0fe72-2045-407c-a875-ddad43dc766d)
+| Model Name              | MAE CV              | MAPE CV           | RMSE CV             |
+|-------------------------|---------------------|-------------------|---------------------|
+| Random Forest Regressor | 983.99 +/- 196.91  | 0.14 +/- 0.02     | 1569.12 +/- 361.45  |
+| XGBoost Regressor       | 1133.19 +/- 177.0  | 0.17 +/- 0.02     | 1645.36 +/- 285.61  |
+| Average Model           | 1354.80         | 0.20            | 1835.13         |
+| Lasso                   | 2248.0 +/- 80.6    | 0.37 +/- 0.01     | 3133.63 +/- 150.18  |
+| Linear Regression       | 2315.4 +/- 630.73  | 0.34 +/- 0.06     | 3222.41 +/- 694.42  |
+
 
 **Após uma análise das métricas com Cross-Validation de 5 splits a Random Forest apresentou o melhor desempenho, mas optei pelo XGBoost para a próxima fase pelos seguintes motivos:** 
 - Requer significativamente menos armazenamento.
