@@ -17,9 +17,9 @@ O objetivo deste projeto é auxiliar o CFO na tomada de decisões, fornecendo pr
 
 # 2. Ferramentas Utilizadas
 
+**Ferramentas para Análise de Dados**
 - Python 3.11.4: A linguagem de programação principal usada para desenvolver o projeto.
-- Pyenv (Ambiente Virtual): Utilizado para isolar dependências e gerenciar versões do Python.
-- Ferramentas Estatísticas.
+- Ferramentas Estatísticas para Análise dos Dados.
 
 **Biblioteca de Machine Learning e Otimização:**
 - Scikit-learn: Empregado para a preparação de dados, treinamento de modelos, avaliação de desempenho e validação cruzada.
@@ -29,6 +29,7 @@ O objetivo deste projeto é auxiliar o CFO na tomada de decisões, fornecendo pr
   
 **Desenvolvimento e Controle de Versão:**
 - Git: Ferramenta de versionamento de código para rastrear alterações e colaboração em equipe.
+- Pyenv (Ambiente Virtual): Utilizado para isolar dependências e gerenciar versões do Python.
 
 **Implantação e Exposição do Modelo:**
 - Flask: Usado para criar uma API RESTful, permitindo a hospedagem do modelo em produção.
