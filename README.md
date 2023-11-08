@@ -101,10 +101,21 @@ O CRIPS-DM é composto pelos seguintes passos:
 - Apresenta um processamento consideravelmente mais rápido
 - Oferece economia em termos de custos computacionais.
 
-# 8. Tradução do modelo de Machine Learning
-O modelo previu vendas de R$ 282 milhões para as próximas 6 semanas. Devido ao seu erro médio de 10%, ele pode, na pior das hipóteses, subestimar o valor em 10% ou superestimar em 10%, como pode ser observado no dataframe a seguir, que apresenta o número de vendas previsto, o melhor cenário e o pior cenário.
+**Modelo Final:**
+| Model Name              | MAE                | MAPE              | RMSE               |
+|-------------------------|--------------------|-------------------|---------------------|
+| XGBoost Regressor       | 708.99         | 0.1027          | 1037.78         |
 
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/75cb0041-fb29-4244-911e-255b4b2799ce)
+
+# 8. Tradução do modelo de Machine Learning
+O modelo previu vendas de R$ 282 milhões para as próximas 6 semanas. Devido ao seu erro médio de 10%, ele pode, na pior das hipóteses, subestimar o valor em 10% ou superestimar em 10%, como pode ser observado abaixo. Se comparado com o modelo baseline de média que tem um erro de 20%, ele diminui em 10% o erro das predições atuais.
+
+| Cenário      | Vendas         |
+|----------------|-----------------|
+| Predição    | R$ 282.697.408,00  |
+| Pior Cenário  | R$ 253.204.264,64  |
+| Melhor Cenário   | R$ 312.190.531,69  |
+
 
 # 9. O produto final do projeto
 WebApp online, hospedado no Streamlit Cloud e integrado com o modelo que está no Render, está disponível para acesso em qualquer dispositivo conectado à internet, possibilitando que qualquer consumidor tenha acesso ao modelo. Você pode acessar o WebApp através do seguinte link: https://rossmann-sales-forecast.streamlit.app/
