@@ -69,43 +69,6 @@ Foi empregado o método de gerenciamento CRIPS-DM, que tem como objetivo o desen
 O CRIPS-DS é composto pelos seguintes passos: 
 ![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/f4cac96f-a228-4e28-b5a2-eb16f29d5a39)
 
-## 1.0 Questão de Negócio:
-Os gerentes das lojas solicitaram a previsão de vendas para as próximas seis semanas.
-
-## 2.0 Entendimento do Negócio:
-Normalmente, um Cientista de Dados recebe uma solução para um problema em vez do próprio problema em si. Portanto, antes de iniciar o projeto, é essencial responder a quatro perguntas fundamentais: Qual é a motivação por trás do problema? Qual é a causa raiz do problema? Quem é o StakeHolder do problema? Qual é o formato de entrega da solução desejada? Com base nas respostas a essas perguntas, pode-se determinar se a previsão é realmente a melhor abordagem. Após analisar as respostas, concluí que a previsão de vendas era, de fato, a melhor opção, e assim iniciei o projeto.
-
-## 3.0 Coleta dos Dados:
-Em projetos de Ciência de Dados em empresas, é comum o uso da linguagem SQL e solicitações em API para extrair as tabelas de dados necessárias. No entanto, neste projeto pessoal, os dados utilizados são públicos e foram baixados do Kaggle.
-
-## 4.0 Filtragem dos Dados:
-Nesta etapa, realizamos uma análise descritiva dos dados, aplicamos engenharia de características e filtramos linhas e colunas de acordo com as restrições de negócios. Também elaboramos um mapa mental que resume essa abordagem.
-
-![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/d20b18b8-842b-4bfb-842e-d2c226da4080)
-
-Com base nesse mapa mental, formulei inicialmente 19 hipóteses. No entanto, devido às limitações das características disponíveis, optei por validar apenas 11 dessas hipóteses.
-
-## 5.0 Exploração dos Dados:
-Foram realizadas análises de dados de três tipos: univariadas, bivariadas e multivariadas. Essas análises têm o objetivo de nos ajudar a compreender melhor o conjunto de dados e identificar quais características podem ser relevantes. Também foi usado essas análises para validar as hipóteses que foram formuladas anteriormente.
-
-## 6.0 Preparação dos Dados:
-A maioria dos modelos de Machine Learning foram criados com a premissa de que os dados estão na mesma escala numérica e seguem uma distribuição normal. Portanto, nesta etapa, realizei a preparação dos dados para otimizar o aprendizado do modelo. Isso inclui:
-
-**A técnica de normalização não foi aplicada, uma vez que nenhuma das variáveis apresentava uma distribuição normal.**
-- Reescalonamento de variáveis.
-- Codificação de variáveis categóricas.
-- Transformação da variável de resposta e aplicação de transformações cíclicas.
-  
-O conjunto de dados foi dividido em um conjunto de treinamento, enquanto as últimas 6 semanas foram reservadas para fins de teste, a fim de simular a situação real de prever as próximas 6 semanas. Em seguida, utilizou-se o algoritmo Boruta para selecionar as variáveis mais relevantes para o modelo, seguindo o princípio da Navalha de Occam. Esse princípio afirma que um modelo mais simples tende a generalizar melhor do que um modelo complexo, portanto, procuramos reduzir o número de variáveis, mantendo ao mesmo tempo o desempenho máximo.
-
-## 7.0 Algoritmos de Machine Learning: 
-### 7.1 Algoritmos
-Foram selecionados 5 algoritmos:
-  1. Average Model
-  2. Linear Regression
-  3. Linear Regression Regularized
-  4. Random Forest Regressor
-  5. XGBoost
 
 ### 7.2 Performance dos Algoritmos sem Cross-Validation:
 **Os algoritmos foram avaliados com base na métrica RMSE**
@@ -183,6 +146,18 @@ O modelo previu vendas de 282 milhões para as próximas 6 semanas. Devido ao se
 - Linear Regression Regularized
 - Random Forest Regressor
 - XGBoost Regressor
+
+(https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/b405e357-dd67-4a14-a474-bd7a5b22a196)
+
+**Após uma análise das métricas com Cross-Validation de 5 splits a Random Forest apresentou o melhor desempenho, mas optei pelo XGBoost para a próxima fase pelos seguintes motivos:** 
+- Requer significativamente menos armazenamento.
+- Apresenta um processamento consideravelmente mais rápido
+- Oferece economia em termos de custos computacionais.
+
+# 6. Tradução do modelo de Machine Learning
+O modelo previu vendas de R$ 282 milhões para as próximas 6 semanas. Devido ao seu erro médio de 10%, ele pode, na pior das hipóteses, subestimar o valor em 10% ou superestimar em 10%, como pode ser observado no dataframe a seguir, que apresenta o número de vendas previsto, o melhor cenário e o pior cenário.
+
+![image](https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/75cb0041-fb29-4244-911e-255b4b2799ce)
 
 # 7. O produto final do projeto
 WebApp online, hospedado no Streamlit Cloud e integrado com o modelo que está no Render, está disponível para acesso em qualquer dispositivo conectado à internet, possibilitando que qualquer consumidor tenha acesso ao modelo. Você pode acessar o WebApp através do seguinte link: https://rossmann-sales-forecast.streamlit.app/
