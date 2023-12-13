@@ -8,21 +8,12 @@
 
 
 
-| Feature              | Feature              |
-|----------------------|----------------------|
-| trip_id              | year                 |
-| call_type            | month                |
-| origin_call          | day                  |
-| origin_stand         | hour                 |
-| taxi_id              | weekday              |
-| timestamp            | inicial              |
-| day_type             | final                |
-| missing_data         | distance             |
-| polyline             | time_spent           |
-| regiao_inicial       | longitude_final      |
-| regiao_final         | latitude_final       |
-| longitude_final      | longitude_inicial    |
-| latitude_final       | latitude_inicial     |
+| time_spent |distance |
+|------------|-----------|
+| 30 | 1                |
+| 60 | 2.5              |
+| 120 | 10               |
+
 
 
 
