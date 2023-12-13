@@ -8,17 +8,33 @@
 
 
 
-| Campo         | Tipo          | Descrição                                                                                                      |
-|---------------|---------------|------------------------------------------------------------------------------------------------------------------|
-| TRIP_ID       | String        | Identificador único para cada viagem.                                                                          |
-| CALL_TYPE     | Char          | Forma utilizada para solicitar o serviço - 'A' se despachado a partir do central, 'B' se solicitado diretamente a um motorista de táxi, 'C' caso contrário.                |
-| ORIGIN_CALL   | Integer       | Identificador único para cada número de telefone utilizado para solicitar o serviço. Nulo se CALL_TYPE não for 'A'.|
-| ORIGIN_STAND  | Integer       | Identificador único para o ponto de táxi. Nulo se CALL_TYPE não for 'B'.                                         |
-| TAXI_ID       | Integer       | Identificador único para o motorista de táxi que realizou cada viagem.                                          |
-| TIMESTAMP     | Integer       | Carimbo de data/hora Unix (em segundos) identificando o início da viagem.                                      |
-| DAYTYPE       | Char          | Tipo de dia em que a viagem começou - 'B' para feriados, 'C' para o dia antes de um dia do tipo 'B', 'A' para dias normais.        |
-| MISSING_DATA  | Boolean       | FALSE quando o fluxo de dados GPS está completo, TRUE quando uma ou mais localizações estão ausentes.          |
-| POLYLINE      | String        | Lista de coordenadas GPS no formato WGS84 mapeada como uma string, representando a rota da viagem.               |
+| Features             |
+|----------------------|
+| trip_id              |
+| call_type            |
+| origin_call          |
+| origin_stand         |
+| taxi_id              |
+| timestamp            |
+| day_type             |
+| missing_data         |
+| polyline             |
+| year                 |
+| month                |
+| day                  |
+| hour                 |
+| weekday              |
+| inicial              |
+| final                |
+| distance             |
+| time_spent           |
+| regiao_inicial       |
+| regiao_final         |
+| longitude_final      |
+| latitude_final       |
+| longitude_inicial    |
+| latitude_inicial     |
+
 
 
 
