@@ -8,6 +8,8 @@
 
 
 
+| Campo         | Tipo          | Descrição                                                                                                      |
+|---------------|---------------|------------------------------------------------------------------------------------------------------------------|
 | TRIP_ID       | String        | Identificador único para cada viagem.                                                                          |
 | CALL_TYPE     | Char          | Forma utilizada para solicitar o serviço - 'A' se despachado a partir do central, 'B' se solicitado diretamente a um motorista de táxi, 'C' caso contrário.                |
 | ORIGIN_CALL   | Integer       | Identificador único para cada número de telefone utilizado para solicitar o serviço. Nulo se CALL_TYPE não for 'A'.|
