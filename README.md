@@ -4,38 +4,6 @@
   <img src="https://github.com/TiagoTBarreto/Rossmann_Sales/assets/137197787/cef091c0-90cc-413c-83ed-ef9bb31c94c5" width="100%" height="300">
 </p>
 
-
-
-
-
-| Feature                                        | Valor    |
-|-----------------------------------------------|----------|
-| longitude_final_media_taxi_driver_day_hour     | 0.258668 |
-| longitude_final_media_origin_hour              | 0.060500 |
-| longitude_final_media_origin_day               | 0.056481 |
-| longitude_inicial                              | 0.047675 |
-| latitude_inicial                               | 0.043566 |
-| latitude_final_media_taxi_driver_day_hour      | 0.040221 |
-| latitude_final_media_taxi_driver_weekday       | 0.035146 |
-| longitude_final_media_taxi_driver_weekday      | 0.034920 |
-| longitude_final_media_taxi_driver_hour         | 0.032307 |
-| longitude_final_media_taxi_driver_day          | 0.030162 |
-| latitude_final_media_taxi_driver_day       | 0.029081 |
-| latitude_final_media_origin_day            | 0.027726 |
-| latitude_final_media_taxi_driver_hour      | 0.027689 |
-| taxi_id                                    | 0.026358 |
-| longitude_final_media_regiao_inicial_day   | 0.019842 |
-| month_cos                                  | 0.019627 |
-| latitude_final_media_regiao_inicial_day    | 0.019468 |
-| month_sin                                  | 0.018866 |
-| day_cos                                    | 0.015804 |
-| longitude_final_media_regiao_inicial_hour  | 0.015519 |
-
-
-
-
-
-
 A companhia Rossmann foi fundada em 1972 é uma das maiores redes de drogarias da Europa, com cerca de 56.200 funcionários e mais de 4000 lojas espalhadas por diversos países. 
 
 # 1. Problema de Negócio
